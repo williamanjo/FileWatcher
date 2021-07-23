@@ -10,6 +10,10 @@ namespace FileWatcher
         {
             InitializeComponent();
             checkedListBox1.SetItemChecked(0, true);
+            checkedListBox2.SetItemChecked(0, true);
+            checkedListBox2.SetItemChecked(1, true);
+            checkedListBox2.SetItemChecked(3, true);
+            checkedListBox2.SetItemChecked(5, true);
             comboBox1.SelectedIndex = 4;
             button1.Select();
             

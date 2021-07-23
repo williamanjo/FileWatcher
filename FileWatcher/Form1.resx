@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="checkedListBox1.ToolTip" xml:space="preserve">
     <value>– Changed – disparado sempre que mudanças são feitas no tamanho, atributos, última escrita, último acesso ou permissões de segurança NTFS de um arquivo ou diretório.
 
@@ -128,6 +125,26 @@
 – Deleted – disparado sempre que um diretório é excluído.
 
 – Renamed – disparado sempre que o nome do diretório ou arquivo é alterado.</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="checkedListBox2.ToolTip" xml:space="preserve">
+    <value>– Attributes – o atributo do arquivo ou diretório.
+
+– CreationTime – a hora que o arquivo ou diretório foi criado.
+
+– DirectoryName – o nome do diretório.
+
+– FileName – o nome do arquivo.
+
+– LastAccess – a data da última abertura do arquivo ou diretório.
+
+– LastWrite – a data da última escrita no arquivo ou diretório.
+
+– Security – as configurações de segurança do arquivo ou diretório.
+
+– Size – O tamanho do arquivo ou diretório.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

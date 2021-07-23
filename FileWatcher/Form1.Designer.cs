@@ -55,12 +55,19 @@ namespace FileWatcher
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,11 +80,14 @@ namespace FileWatcher
             this.tabControl1.Location = new System.Drawing.Point(0, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(696, 286);
+            this.tabControl1.Size = new System.Drawing.Size(696, 335);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.button3);
@@ -94,7 +104,7 @@ namespace FileWatcher
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(688, 260);
+            this.tabPage1.Size = new System.Drawing.Size(688, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Painel";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -128,7 +138,7 @@ namespace FileWatcher
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(571, 131);
+            this.button3.Location = new System.Drawing.Point(451, 106);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 23);
             this.button3.TabIndex = 36;
@@ -139,7 +149,7 @@ namespace FileWatcher
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(267, 78);
+            this.label3.Location = new System.Drawing.Point(275, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 35;
@@ -148,7 +158,7 @@ namespace FileWatcher
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Location = new System.Drawing.Point(562, 160);
+            this.groupBox2.Location = new System.Drawing.Point(562, 195);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(110, 90);
             this.groupBox2.TabIndex = 34;
@@ -180,7 +190,7 @@ namespace FileWatcher
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(571, 102);
+            this.button2.Location = new System.Drawing.Point(451, 77);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 23);
             this.button2.TabIndex = 33;
@@ -192,7 +202,7 @@ namespace FileWatcher
             // 
             this.Status.AutoSize = true;
             this.Status.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Status.Location = new System.Drawing.Point(227, 78);
+            this.Status.Location = new System.Drawing.Point(235, 116);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(46, 13);
             this.Status.TabIndex = 32;
@@ -253,7 +263,7 @@ namespace FileWatcher
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(19, 94);
+            this.groupBox1.Location = new System.Drawing.Point(19, 138);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(533, 156);
             this.groupBox1.TabIndex = 26;
@@ -282,7 +292,7 @@ namespace FileWatcher
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(688, 260);
+            this.tabPage2.Size = new System.Drawing.Size(688, 297);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mover";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -291,7 +301,7 @@ namespace FileWatcher
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(688, 260);
+            this.tabPage3.Size = new System.Drawing.Size(688, 297);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Renomear";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -300,7 +310,7 @@ namespace FileWatcher
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(688, 260);
+            this.tabPage4.Size = new System.Drawing.Size(688, 297);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Copiar";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -309,7 +319,7 @@ namespace FileWatcher
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(688, 260);
+            this.tabPage5.Size = new System.Drawing.Size(688, 297);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Deletar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -321,11 +331,68 @@ namespace FileWatcher
             this.toolTip1.ReshowDelay = 100;
             this.toolTip1.ShowAlways = true;
             // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "Attributes",
+            "CreationTime",
+            "DirectoryName",
+            "FileName",
+            "LastAccess",
+            "LastWrite",
+            "Security",
+            "Size"});
+            this.checkedListBox2.Location = new System.Drawing.Point(0, 0);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(95, 124);
+            this.checkedListBox2.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.checkedListBox2, resources.GetString("checkedListBox2.ToolTip"));
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.checkedListBox2);
+            this.panel3.Location = new System.Drawing.Point(9, 16);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(95, 131);
+            this.panel3.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Location = new System.Drawing.Point(562, 44);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(110, 146);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "NotifyFilters";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(19, 83);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(118, 17);
+            this.checkBox1.TabIndex = 39;
+            this.checkBox1.Text = "Incluir Subdiretórios";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(608, 291);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Version 1.0.0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 285);
+            this.ClientSize = new System.Drawing.Size(693, 334);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -339,6 +406,8 @@ namespace FileWatcher
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -369,6 +438,11 @@ namespace FileWatcher
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
 
