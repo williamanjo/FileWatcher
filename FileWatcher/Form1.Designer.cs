@@ -176,6 +176,7 @@ namespace FileWatcher
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(95, 64);
             this.checkedListBox1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.checkedListBox1, resources.GetString("checkedListBox1.ToolTip"));
             // 
             // button2
             // 
@@ -315,7 +316,7 @@ namespace FileWatcher
             // 
             // toolTip1
             // 
-            this.toolTip1.AutoPopDelay = 7000;
+            this.toolTip1.AutoPopDelay = 10000;
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             this.toolTip1.ShowAlways = true;

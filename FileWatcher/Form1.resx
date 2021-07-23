@@ -120,9 +120,15 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="checkedListBox1.ToolTip" xml:space="preserve">
+    <value>– Changed – disparado sempre que mudanças são feitas no tamanho, atributos, última escrita, último acesso ou permissões de segurança NTFS de um arquivo ou diretório.
+
+– Created – disparado sempre que um diretório é criado.
+
+– Deleted – disparado sempre que um diretório é excluído.
+
+– Renamed – disparado sempre que o nome do diretório ou arquivo é alterado.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
