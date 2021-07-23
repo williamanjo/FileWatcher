@@ -1,0 +1,15 @@
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\FileWatcher.exe.config
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\FileWatcher.exe
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\FileWatcher.pdb
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\Microsoft.WindowsAPICodePack.dll
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\Microsoft.WindowsAPICodePack.Sensors.dll
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.Form1.resources
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.Properties.Resources.resources
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.csproj.GenerateResource.cache
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.csproj.CoreCompileInputs.cache
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.csproj.CopyComplete
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.exe
+C:\Users\william.silva\source\repos\FileWatcher\FileWatcher\obj\Release\FileWatcher.pdb
