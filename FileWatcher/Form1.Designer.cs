@@ -33,6 +33,11 @@ namespace FileWatcher
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -42,7 +47,7 @@ namespace FileWatcher
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.Status = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.filter = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,19 +60,15 @@ namespace FileWatcher
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -95,7 +96,7 @@ namespace FileWatcher
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.Status);
-            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.filter);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button1);
@@ -108,6 +109,63 @@ namespace FileWatcher
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Painel";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(608, 291);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Version 1.0.0";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(19, 83);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(118, 17);
+            this.checkBox1.TabIndex = 39;
+            this.checkBox1.Text = "Incluir Subdiretórios";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Location = new System.Drawing.Point(562, 44);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(110, 146);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "NotifyFilters";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.checkedListBox2);
+            this.panel3.Location = new System.Drawing.Point(9, 16);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(95, 131);
+            this.panel3.TabIndex = 0;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "Attributes",
+            "CreationTime",
+            "DirectoryName",
+            "FileName",
+            "LastAccess",
+            "LastWrite",
+            "Security",
+            "Size"});
+            this.checkedListBox2.Location = new System.Drawing.Point(0, 0);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(95, 124);
+            this.checkedListBox2.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.checkedListBox2, resources.GetString("checkedListBox2.ToolTip"));
             // 
             // label4
             // 
@@ -144,10 +202,12 @@ namespace FileWatcher
             this.button3.TabIndex = 36;
             this.button3.Text = "Limpar Log";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label3.Location = new System.Drawing.Point(275, 116);
             this.label3.Name = "label3";
@@ -208,15 +268,15 @@ namespace FileWatcher
             this.Status.TabIndex = 32;
             this.Status.Text = "Status : ";
             // 
-            // textBox3
+            // filter
             // 
-            this.textBox3.Location = new System.Drawing.Point(57, 43);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(43, 20);
-            this.textBox3.TabIndex = 31;
-            this.textBox3.Text = "*.*";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.textBox3, " Filtro de Arquivos onde :\r\n*.*       - Todos os arquivos.\r\n*.pdf   - Só PDF\'s.\r\n" +
+            this.filter.Location = new System.Drawing.Point(57, 43);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(43, 20);
+            this.filter.TabIndex = 31;
+            this.filter.Text = "*.*";
+            this.filter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.filter, " Filtro de Arquivos onde :\r\n*.*       - Todos os arquivos.\r\n*.pdf   - Só PDF\'s.\r\n" +
         "123*.*  - Arquivos Que Começam com 123.\r\n*567*   - Arquivos que tenham Em qualqu" +
         "er Lugar no nome 567.");
             // 
@@ -292,7 +352,7 @@ namespace FileWatcher
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(688, 297);
+            this.tabPage2.Size = new System.Drawing.Size(688, 309);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mover";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -301,7 +361,7 @@ namespace FileWatcher
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(688, 297);
+            this.tabPage3.Size = new System.Drawing.Size(688, 309);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Renomear";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -310,7 +370,7 @@ namespace FileWatcher
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(688, 297);
+            this.tabPage4.Size = new System.Drawing.Size(688, 309);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Copiar";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -319,7 +379,7 @@ namespace FileWatcher
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(688, 297);
+            this.tabPage5.Size = new System.Drawing.Size(688, 309);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Deletar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -331,68 +391,15 @@ namespace FileWatcher
             this.toolTip1.ReshowDelay = 100;
             this.toolTip1.ShowAlways = true;
             // 
-            // checkedListBox2
+            // backgroundWorker1
             // 
-            this.checkedListBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
-            "Attributes",
-            "CreationTime",
-            "DirectoryName",
-            "FileName",
-            "LastAccess",
-            "LastWrite",
-            "Security",
-            "Size"});
-            this.checkedListBox2.Location = new System.Drawing.Point(0, 0);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(95, 124);
-            this.checkedListBox2.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.checkedListBox2, resources.GetString("checkedListBox2.ToolTip"));
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.checkedListBox2);
-            this.panel3.Location = new System.Drawing.Point(9, 16);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(95, 131);
-            this.panel3.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.panel3);
-            this.groupBox3.Location = new System.Drawing.Point(562, 44);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(110, 146);
-            this.groupBox3.TabIndex = 35;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "NotifyFilters";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(19, 83);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(118, 17);
-            this.checkBox1.TabIndex = 39;
-            this.checkBox1.Text = "Incluir Subdiretórios";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(608, 291);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Version 1.0.0";
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 334);
+            this.ClientSize = new System.Drawing.Size(693, 330);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -401,13 +408,13 @@ namespace FileWatcher
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -425,7 +432,7 @@ namespace FileWatcher
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label Status;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox filter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
@@ -443,6 +450,7 @@ namespace FileWatcher
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label5;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
