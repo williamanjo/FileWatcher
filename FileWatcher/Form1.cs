@@ -11,6 +11,8 @@ namespace FileWatcher
 
     {
         FileSystemWatcher watcher = new FileSystemWatcher();
+        public static string Logg { set; get; }
+        public static string Nome { set; get; }
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace FileWatcher
             checkedListBox2.SetItemChecked(3, true);
             checkedListBox2.SetItemChecked(5, true);
             comboBox1.SelectedIndex = 4;
+            comboBox2.SelectedIndex = 3;
+            textBox4.Text = "MMMM-yyyy";
             button1.Select();
 
         }
@@ -135,16 +139,14 @@ namespace FileWatcher
         }
 
         private void button2_Click(object sender, EventArgs e)
-
         {
-            
-            
-            
+                        
             try
             {
 
                 if (button2.Text == "Start" || button2.Text == "Stoped")
                 {
+                    button3.Text = "Limpar Log";
                     watcher.Dispose();
                     watcher = new FileSystemWatcher();
                     watcher.Path = (@"" + textBox2.Text);
@@ -267,7 +269,96 @@ namespace FileWatcher
 
         private void button3_Click(object sender, EventArgs e)
         {
-            log.Text = "";
+            if (button3.Text == "Limpar Log")
+            {
+                button3.Text = "Restaurar";
+                Logg = log.Text;
+                log.Text = "";
+            }
+            else {
+                button3.Text = "Limpar Log";
+                log.Text = Logg;
+            }
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (checkedListBox1.GetItemChecked(2))
+            {
+                if (comboBox1.SelectedIndex != 7){
+                    comboBox1.SelectedIndex = 0;
+                }
+                comboBox1.Items.Clear();
+                comboBox1.Items.AddRange(new object[] {
+                "Mover",
+                "Renomear",
+                "Mover e Renomear ",
+                "Copiar",
+                "Copiar e Renomear"
+            });
+
+            }
+            else {
+                
+                comboBox1.Items.Clear();
+                comboBox1.Items.AddRange(new object[] {
+                "Mover",
+                "Renomear",
+                "Mover e Renomear ",
+                "Copiar",
+                "Copiar e Renomear",
+                "Deletar"
+            });
+
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var dialog = new CommonOpenFileDialog
+            {
+                IsFolderPicker = true,
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+            CommonFileDialogResult result = dialog.ShowDialog();
+            if (result.ToString() == "Ok")
+            {
+
+                textBox1.Text = dialog.FileName;
+            }
+            dialog = null;
+
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var dialog = new CommonOpenFileDialog
+            {
+                IsFolderPicker = true,
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+            CommonFileDialogResult result = dialog.ShowDialog();
+            if (result.ToString() == "Ok")
+            {
+
+                textBox3.Text = dialog.FileName;
+            }
+            dialog = null;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedIndex != 0) { textBox4.Visible = true; } else { textBox4.Visible = false; }
+            if (comboBox2.SelectedIndex == 1) { textBox4.Text = "MMMM"; }
+            if (comboBox2.SelectedIndex == 2) { textBox4.Text = "dd"; }
+            if (comboBox2.SelectedIndex == 3) { textBox4.Enabled = true; } else { textBox4.Enabled = false; }
         }
     }
 }
