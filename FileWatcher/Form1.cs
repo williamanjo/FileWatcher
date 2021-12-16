@@ -147,6 +147,12 @@ namespace FileWatcher
                 if (button2.Text == "Start" || button2.Text == "Stoped")
                 {
                     button3.Text = "Limpar Log";
+                    button1.Enabled = false;
+                    filter.Enabled = false;
+                    comboBox1.Enabled = false;
+                    checkedListBox2.Enabled = false;
+                    checkedListBox1.Enabled = false;
+                    checkBox1.Enabled = false;
                     watcher.Dispose();
                     watcher = new FileSystemWatcher();
                     watcher.Path = (@"" + textBox2.Text);
@@ -185,6 +191,12 @@ namespace FileWatcher
                 }
                 else
                 {
+                    button1.Enabled = true;
+                    comboBox1.Enabled = true;
+                    filter.Enabled = true;
+                    checkBox1.Enabled = true;
+                    checkedListBox2.Enabled = true;
+                    checkedListBox1.Enabled = true;
                     watcher.EnableRaisingEvents = false;
                     watcher.Dispose();
                     log.AppendText(Environment.NewLine +"Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
@@ -224,8 +236,8 @@ namespace FileWatcher
                     Console.WriteLine("Deletar");
                     break;
                 default:
-                    Console.WriteLine("Caso não existe");
-                    Error("Caso não existe");
+                    Console.WriteLine("Caso não existe (" + comboBox1.SelectedIndex + ")");
+                    Error("Caso não existe (" + comboBox1.SelectedIndex + ")");
                     comboBox1.Select();
                     break;
             }

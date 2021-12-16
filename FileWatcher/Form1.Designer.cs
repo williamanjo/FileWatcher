@@ -62,18 +62,18 @@ namespace FileWatcher
             this.log = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -438,73 +438,25 @@ namespace FileWatcher
             this.tabPage3.Text = "Renomear";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // textBox7
             // 
-            this.tabPage4.Controls.Add(this.textBox4);
-            this.tabPage4.Controls.Add(this.comboBox2);
-            this.tabPage4.Controls.Add(this.label7);
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.textBox3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(688, 309);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Copiar";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.textBox7.Location = new System.Drawing.Point(299, 82);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(110, 20);
+            this.textBox7.TabIndex = 43;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label7
+            // comboBox4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 15);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Copiar Para :";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(555, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(114, 23);
-            this.button5.TabIndex = 34;
-            this.button5.Text = "Selecionar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(101, 28);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(444, 20);
-            this.textBox3.TabIndex = 33;
-            this.textBox3.Text = "C:\\AIR Backup";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Não Separar Arquivos",
-            "Separar Arquivos Por Mês",
-            "Separar Arquivos Por Dia",
-            "Outro Formato"});
-            this.comboBox2.Location = new System.Drawing.Point(101, 58);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 21);
-            this.comboBox2.TabIndex = 36;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(258, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 20);
-            this.textBox4.TabIndex = 37;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox4.Visible = false;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Não Mudar a Extenção",
+            "Extenção do Arquivo (Específica)",
+            "Extenção do Arquivo (Format)"});
+            this.comboBox4.Location = new System.Drawing.Point(100, 82);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(183, 21);
+            this.comboBox4.TabIndex = 42;
             // 
             // textBox5
             // 
@@ -546,25 +498,73 @@ namespace FileWatcher
             this.textBox6.TabIndex = 38;
             this.textBox6.Text = "C:\\AIR Backup";
             // 
-            // textBox7
+            // tabPage4
             // 
-            this.textBox7.Location = new System.Drawing.Point(299, 82);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(110, 20);
-            this.textBox7.TabIndex = 43;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tabPage4.Controls.Add(this.textBox4);
+            this.tabPage4.Controls.Add(this.comboBox2);
+            this.tabPage4.Controls.Add(this.label7);
+            this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.textBox3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(688, 309);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Copiar";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // comboBox4
+            // textBox4
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Não Mudar a Extenção",
-            "Extenção do Arquivo (Específica)",
-            "Extenção do Arquivo (Format)"});
-            this.comboBox4.Location = new System.Drawing.Point(100, 82);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(183, 21);
-            this.comboBox4.TabIndex = 42;
+            this.textBox4.Location = new System.Drawing.Point(258, 58);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(110, 20);
+            this.textBox4.TabIndex = 37;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.Visible = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Não Separar Arquivos",
+            "Separar Arquivos Por Mês",
+            "Separar Arquivos Por Dia",
+            "Outro Formato"});
+            this.comboBox2.Location = new System.Drawing.Point(101, 58);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(151, 21);
+            this.comboBox2.TabIndex = 36;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 15);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Copiar Para :";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(555, 25);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(114, 23);
+            this.button5.TabIndex = 34;
+            this.button5.Text = "Selecionar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(101, 28);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(7);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(444, 20);
+            this.textBox3.TabIndex = 33;
+            this.textBox3.Text = "C:\\AIR Backup";
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Form1
             // 
