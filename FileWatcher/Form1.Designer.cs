@@ -32,48 +32,48 @@ namespace FileWatcher
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.filter = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.Filter = new System.Windows.Forms.TextBox();
+            this.EventsTypes = new System.Windows.Forms.CheckedListBox();
+            this.OnEventType = new System.Windows.Forms.ComboBox();
+            this.NotifyFilters = new System.Windows.Forms.CheckedListBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MoveTo = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.LabelVersion = new System.Windows.Forms.Label();
+            this.Subdirectories = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabelStatus = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.Status = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.FolderWatcher = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.log = new System.Windows.Forms.TextBox();
+            this.LogBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.ExtensionDoc = new System.Windows.Forms.TextBox();
+            this.ExtensionDocType = new System.Windows.Forms.ComboBox();
+            this.ChangeDocName = new System.Windows.Forms.TextBox();
+            this.ChangeDocNameType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.SplitDoc = new System.Windows.Forms.TextBox();
+            this.TypeSplitDoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CopyTo = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -94,56 +94,56 @@ namespace FileWatcher
             this.toolTip1.ReshowDelay = 100;
             this.toolTip1.ShowAlways = true;
             // 
-            // filter
+            // Filter
             // 
-            this.filter.Location = new System.Drawing.Point(57, 43);
-            this.filter.Name = "filter";
-            this.filter.Size = new System.Drawing.Size(43, 20);
-            this.filter.TabIndex = 31;
-            this.filter.Text = "*.*";
-            this.filter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.filter, " Filtro de Arquivos onde :\r\n*.*       - Todos os arquivos.\r\n*.pdf   - Só PDF\'s.\r\n" +
+            this.Filter.Location = new System.Drawing.Point(57, 43);
+            this.Filter.Name = "Filter";
+            this.Filter.Size = new System.Drawing.Size(43, 20);
+            this.Filter.TabIndex = 31;
+            this.Filter.Text = "*.*";
+            this.Filter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.Filter, " Filtro de Arquivos onde :\r\n*.*       - Todos os arquivos.\r\n*.pdf   - Só PDF\'s.\r\n" +
         "123*.*  - Arquivos Que Começam com 123.\r\n*567*   - Arquivos que tenham Em qualqu" +
         "er Lugar no nome 567.");
             // 
-            // checkedListBox1
+            // EventsTypes
             // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.EventsTypes.BackColor = System.Drawing.SystemColors.Window;
+            this.EventsTypes.FormattingEnabled = true;
+            this.EventsTypes.Items.AddRange(new object[] {
             "Changed",
             "Created",
             "Deleted",
             "Renamed"});
-            this.checkedListBox1.Location = new System.Drawing.Point(0, 0);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(95, 64);
-            this.checkedListBox1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.checkedListBox1, resources.GetString("checkedListBox1.ToolTip"));
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.EventsTypes.Location = new System.Drawing.Point(0, 0);
+            this.EventsTypes.Name = "EventsTypes";
+            this.EventsTypes.Size = new System.Drawing.Size(95, 64);
+            this.EventsTypes.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.EventsTypes, resources.GetString("EventsTypes.ToolTip"));
+            this.EventsTypes.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // comboBox1
+            // OnEventType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.OnEventType.FormattingEnabled = true;
+            this.OnEventType.Items.AddRange(new object[] {
             "Mover",
             "Renomear",
             "Mover e Renomear ",
             "Copiar",
             "Copiar e Renomear",
             "Deletar"});
-            this.comboBox1.Location = new System.Drawing.Point(188, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 37;
-            this.toolTip1.SetToolTip(this.comboBox1, "Ação a ser executada quando ocorrer um Evento");
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.OnEventType.Location = new System.Drawing.Point(188, 41);
+            this.OnEventType.Name = "OnEventType";
+            this.OnEventType.Size = new System.Drawing.Size(121, 21);
+            this.OnEventType.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.OnEventType, "Ação a ser executada quando ocorrer um Evento");
+            this.OnEventType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // checkedListBox2
+            // NotifyFilters
             // 
-            this.checkedListBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
+            this.NotifyFilters.BackColor = System.Drawing.SystemColors.Window;
+            this.NotifyFilters.FormattingEnabled = true;
+            this.NotifyFilters.Items.AddRange(new object[] {
             "Attributes",
             "CreationTime",
             "DirectoryName",
@@ -152,11 +152,11 @@ namespace FileWatcher
             "LastWrite",
             "Security",
             "Size"});
-            this.checkedListBox2.Location = new System.Drawing.Point(0, 0);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(95, 124);
-            this.checkedListBox2.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.checkedListBox2, resources.GetString("checkedListBox2.ToolTip"));
+            this.NotifyFilters.Location = new System.Drawing.Point(0, 0);
+            this.NotifyFilters.Name = "NotifyFilters";
+            this.NotifyFilters.Size = new System.Drawing.Size(95, 124);
+            this.NotifyFilters.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.NotifyFilters, resources.GetString("NotifyFilters.ToolTip"));
             // 
             // tabPage5
             // 
@@ -171,7 +171,7 @@ namespace FileWatcher
             // 
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.MoveTo);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -200,29 +200,29 @@ namespace FileWatcher
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // MoveTo
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 24);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(444, 20);
-            this.textBox1.TabIndex = 30;
+            this.MoveTo.Location = new System.Drawing.Point(107, 24);
+            this.MoveTo.Margin = new System.Windows.Forms.Padding(7);
+            this.MoveTo.Name = "MoveTo";
+            this.MoveTo.ReadOnly = true;
+            this.MoveTo.Size = new System.Drawing.Size(444, 20);
+            this.MoveTo.TabIndex = 30;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.LabelVersion);
+            this.tabPage1.Controls.Add(this.Subdirectories);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.OnEventType);
             this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.LabelStatus);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.Status);
-            this.tabPage1.Controls.Add(this.filter);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.Filter);
+            this.tabPage1.Controls.Add(this.FolderWatcher);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button1);
@@ -235,25 +235,25 @@ namespace FileWatcher
             this.tabPage1.Text = "Painel";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // LabelVersion
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(608, 291);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Version 1.0.0";
+            this.LabelVersion.AutoSize = true;
+            this.LabelVersion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LabelVersion.Location = new System.Drawing.Point(608, 291);
+            this.LabelVersion.Name = "LabelVersion";
+            this.LabelVersion.Size = new System.Drawing.Size(69, 13);
+            this.LabelVersion.TabIndex = 40;
+            this.LabelVersion.Text = "Version 1.0.0";
             // 
-            // checkBox1
+            // Subdirectories
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(19, 83);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(118, 17);
-            this.checkBox1.TabIndex = 39;
-            this.checkBox1.Text = "Incluir Subdiretórios";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.Subdirectories.AutoSize = true;
+            this.Subdirectories.Location = new System.Drawing.Point(19, 83);
+            this.Subdirectories.Name = "Subdirectories";
+            this.Subdirectories.Size = new System.Drawing.Size(118, 17);
+            this.Subdirectories.TabIndex = 39;
+            this.Subdirectories.Text = "Incluir Subdiretórios";
+            this.Subdirectories.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -267,7 +267,7 @@ namespace FileWatcher
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.checkedListBox2);
+            this.panel3.Controls.Add(this.NotifyFilters);
             this.panel3.Location = new System.Drawing.Point(9, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(95, 131);
@@ -293,16 +293,16 @@ namespace FileWatcher
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label3
+            // LabelStatus
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(275, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Not Started";
+            this.LabelStatus.AutoSize = true;
+            this.LabelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelStatus.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LabelStatus.Location = new System.Drawing.Point(275, 116);
+            this.LabelStatus.Name = "LabelStatus";
+            this.LabelStatus.Size = new System.Drawing.Size(61, 13);
+            this.LabelStatus.TabIndex = 35;
+            this.LabelStatus.Text = "Not Started";
             // 
             // groupBox2
             // 
@@ -316,7 +316,7 @@ namespace FileWatcher
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkedListBox1);
+            this.panel2.Controls.Add(this.EventsTypes);
             this.panel2.Location = new System.Drawing.Point(9, 16);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(95, 68);
@@ -342,15 +342,16 @@ namespace FileWatcher
             this.Status.TabIndex = 32;
             this.Status.Text = "Status : ";
             // 
-            // textBox2
+            // FolderWatcher
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 12);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(444, 20);
-            this.textBox2.TabIndex = 27;
-            this.textBox2.Text = "C:\\AIR Concluido";
+            this.FolderWatcher.Location = new System.Drawing.Point(108, 12);
+            this.FolderWatcher.Margin = new System.Windows.Forms.Padding(7);
+            this.FolderWatcher.Name = "FolderWatcher";
+            this.FolderWatcher.ReadOnly = true;
+            this.FolderWatcher.Size = new System.Drawing.Size(444, 20);
+            this.FolderWatcher.TabIndex = 27;
+            this.FolderWatcher.Text = "C:\\AIR Concluido";
+            this.FolderWatcher.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -394,21 +395,21 @@ namespace FileWatcher
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.log);
+            this.panel1.Controls.Add(this.LogBox);
             this.panel1.Location = new System.Drawing.Point(6, 16);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(521, 131);
             this.panel1.TabIndex = 0;
             // 
-            // log
+            // LogBox
             // 
-            this.log.Location = new System.Drawing.Point(0, 0);
-            this.log.Multiline = true;
-            this.log.Name = "log";
-            this.log.ReadOnly = true;
-            this.log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.log.Size = new System.Drawing.Size(521, 131);
-            this.log.TabIndex = 0;
+            this.LogBox.Location = new System.Drawing.Point(0, 0);
+            this.LogBox.Multiline = true;
+            this.LogBox.Name = "LogBox";
+            this.LogBox.ReadOnly = true;
+            this.LogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.LogBox.Size = new System.Drawing.Size(521, 131);
+            this.LogBox.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -425,10 +426,10 @@ namespace FileWatcher
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox7);
-            this.tabPage3.Controls.Add(this.comboBox4);
-            this.tabPage3.Controls.Add(this.textBox5);
-            this.tabPage3.Controls.Add(this.comboBox3);
+            this.tabPage3.Controls.Add(this.ExtensionDoc);
+            this.tabPage3.Controls.Add(this.ExtensionDocType);
+            this.tabPage3.Controls.Add(this.ChangeDocName);
+            this.tabPage3.Controls.Add(this.ChangeDocNameType);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.textBox6);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -438,45 +439,45 @@ namespace FileWatcher
             this.tabPage3.Text = "Renomear";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // ExtensionDoc
             // 
-            this.textBox7.Location = new System.Drawing.Point(299, 82);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(110, 20);
-            this.textBox7.TabIndex = 43;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ExtensionDoc.Location = new System.Drawing.Point(299, 82);
+            this.ExtensionDoc.Name = "ExtensionDoc";
+            this.ExtensionDoc.Size = new System.Drawing.Size(110, 20);
+            this.ExtensionDoc.TabIndex = 43;
+            this.ExtensionDoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox4
+            // ExtensionDocType
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.ExtensionDocType.FormattingEnabled = true;
+            this.ExtensionDocType.Items.AddRange(new object[] {
             "Não Mudar a Extenção",
             "Extenção do Arquivo (Específica)",
             "Extenção do Arquivo (Format)"});
-            this.comboBox4.Location = new System.Drawing.Point(100, 82);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(183, 21);
-            this.comboBox4.TabIndex = 42;
+            this.ExtensionDocType.Location = new System.Drawing.Point(100, 82);
+            this.ExtensionDocType.Name = "ExtensionDocType";
+            this.ExtensionDocType.Size = new System.Drawing.Size(183, 21);
+            this.ExtensionDocType.TabIndex = 42;
             // 
-            // textBox5
+            // ChangeDocName
             // 
-            this.textBox5.Location = new System.Drawing.Point(299, 55);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(110, 20);
-            this.textBox5.TabIndex = 41;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ChangeDocName.Location = new System.Drawing.Point(299, 55);
+            this.ChangeDocName.Name = "ChangeDocName";
+            this.ChangeDocName.Size = new System.Drawing.Size(110, 20);
+            this.ChangeDocName.TabIndex = 41;
+            this.ChangeDocName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox3
+            // ChangeDocNameType
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.ChangeDocNameType.FormattingEnabled = true;
+            this.ChangeDocNameType.Items.AddRange(new object[] {
             "Adicionar Format no Final",
             "Adicionar Format no Começo",
             "Nome Específico"});
-            this.comboBox3.Location = new System.Drawing.Point(100, 55);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(183, 21);
-            this.comboBox3.TabIndex = 40;
+            this.ChangeDocNameType.Location = new System.Drawing.Point(100, 55);
+            this.ChangeDocNameType.Name = "ChangeDocNameType";
+            this.ChangeDocNameType.Size = new System.Drawing.Size(183, 21);
+            this.ChangeDocNameType.TabIndex = 40;
             // 
             // label8
             // 
@@ -500,11 +501,11 @@ namespace FileWatcher
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.textBox4);
-            this.tabPage4.Controls.Add(this.comboBox2);
+            this.tabPage4.Controls.Add(this.SplitDoc);
+            this.tabPage4.Controls.Add(this.TypeSplitDoc);
             this.tabPage4.Controls.Add(this.label7);
             this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.textBox3);
+            this.tabPage4.Controls.Add(this.CopyTo);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(688, 309);
@@ -512,28 +513,28 @@ namespace FileWatcher
             this.tabPage4.Text = "Copiar";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // SplitDoc
             // 
-            this.textBox4.Location = new System.Drawing.Point(258, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 20);
-            this.textBox4.TabIndex = 37;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox4.Visible = false;
+            this.SplitDoc.Location = new System.Drawing.Point(258, 58);
+            this.SplitDoc.Name = "SplitDoc";
+            this.SplitDoc.Size = new System.Drawing.Size(110, 20);
+            this.SplitDoc.TabIndex = 37;
+            this.SplitDoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SplitDoc.Visible = false;
             // 
-            // comboBox2
+            // TypeSplitDoc
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.TypeSplitDoc.FormattingEnabled = true;
+            this.TypeSplitDoc.Items.AddRange(new object[] {
             "Não Separar Arquivos",
             "Separar Arquivos Por Mês",
             "Separar Arquivos Por Dia",
             "Outro Formato"});
-            this.comboBox2.Location = new System.Drawing.Point(101, 58);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 21);
-            this.comboBox2.TabIndex = 36;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.TypeSplitDoc.Location = new System.Drawing.Point(101, 58);
+            this.TypeSplitDoc.Name = "TypeSplitDoc";
+            this.TypeSplitDoc.Size = new System.Drawing.Size(151, 21);
+            this.TypeSplitDoc.TabIndex = 36;
+            this.TypeSplitDoc.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -555,16 +556,16 @@ namespace FileWatcher
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox3
+            // CopyTo
             // 
-            this.textBox3.Location = new System.Drawing.Point(101, 28);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(444, 20);
-            this.textBox3.TabIndex = 33;
-            this.textBox3.Text = "C:\\AIR Backup";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.CopyTo.Location = new System.Drawing.Point(101, 28);
+            this.CopyTo.Margin = new System.Windows.Forms.Padding(7);
+            this.CopyTo.Name = "CopyTo";
+            this.CopyTo.ReadOnly = true;
+            this.CopyTo.Size = new System.Drawing.Size(444, 20);
+            this.CopyTo.TabIndex = 33;
+            this.CopyTo.Text = "C:\\AIR Backup";
+            this.CopyTo.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Form1
             // 
@@ -602,42 +603,42 @@ namespace FileWatcher
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MoveTo;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label LabelVersion;
+        private System.Windows.Forms.CheckBox Subdirectories;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox NotifyFilters;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox OnEventType;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelStatus;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox EventsTypes;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label Status;
-        private System.Windows.Forms.TextBox filter;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Filter;
+        private System.Windows.Forms.TextBox FolderWatcher;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox log;
+        private System.Windows.Forms.TextBox LogBox;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox CopyTo;
+        private System.Windows.Forms.ComboBox TypeSplitDoc;
+        private System.Windows.Forms.TextBox SplitDoc;
+        private System.Windows.Forms.TextBox ExtensionDoc;
+        private System.Windows.Forms.ComboBox ExtensionDocType;
+        private System.Windows.Forms.TextBox ChangeDocName;
+        private System.Windows.Forms.ComboBox ChangeDocNameType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;
     }

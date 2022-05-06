@@ -120,7 +120,7 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="checkedListBox1.ToolTip" xml:space="preserve">
+  <data name="EventsTypes.ToolTip" xml:space="preserve">
     <value>– Changed – disparado sempre que mudanças são feitas no tamanho, atributos, última escrita, último acesso ou permissões de segurança NTFS de um arquivo ou diretório.
 
 – Created – disparado sempre que um diretório é criado.
@@ -129,7 +129,7 @@
 
 – Renamed – disparado sempre que o nome do diretório ou arquivo é alterado.</value>
   </data>
-  <data name="checkedListBox2.ToolTip" xml:space="preserve">
+  <data name="NotifyFilters.ToolTip" xml:space="preserve">
     <value>– Attributes – o atributo do arquivo ou diretório.
 
 – CreationTime – a hora que o arquivo ou diretório foi criado.

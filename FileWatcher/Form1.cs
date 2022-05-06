@@ -17,14 +17,14 @@ namespace FileWatcher
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            checkedListBox1.SetItemChecked(0, true);
-            checkedListBox2.SetItemChecked(0, true);
-            checkedListBox2.SetItemChecked(1, true);
-            checkedListBox2.SetItemChecked(3, true);
-            checkedListBox2.SetItemChecked(5, true);
-            comboBox1.SelectedIndex = 4;
-            comboBox2.SelectedIndex = 3;
-            textBox4.Text = "MMMM-yyyy";
+            EventsTypes.SetItemChecked(0, true);
+            NotifyFilters.SetItemChecked(0, true);
+            NotifyFilters.SetItemChecked(1, true);
+            NotifyFilters.SetItemChecked(3, true);
+            NotifyFilters.SetItemChecked(5, true);
+            OnEventType.SelectedIndex = 4;
+            TypeSplitDoc.SelectedIndex = 3;
+            SplitDoc.Text = "MMMM-yyyy";
             button1.Select();
 
         }
@@ -32,7 +32,7 @@ namespace FileWatcher
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
-            if (comboBox1.SelectedIndex == 0)
+            if (OnEventType.SelectedIndex == 0)
             {
 
                 tabControl1.TabPages.Remove(tabPage3);
@@ -46,7 +46,7 @@ namespace FileWatcher
 
 
             }
-            else if (comboBox1.SelectedIndex == 1)
+            else if (OnEventType.SelectedIndex == 1)
             {
 
                 tabControl1.TabPages.Remove(tabPage2);
@@ -60,7 +60,7 @@ namespace FileWatcher
 
 
             }
-            else if (comboBox1.SelectedIndex == 2)
+            else if (OnEventType.SelectedIndex == 2)
             {
                 tabControl1.TabPages.Remove(tabPage4);
                 tabControl1.TabPages.Remove(tabPage5);
@@ -76,7 +76,7 @@ namespace FileWatcher
 
 
             }
-            else if (comboBox1.SelectedIndex == 3)
+            else if (OnEventType.SelectedIndex == 3)
             {
                 tabControl1.TabPages.Remove(tabPage2);
                 tabControl1.TabPages.Remove(tabPage3);
@@ -90,7 +90,7 @@ namespace FileWatcher
 
 
             }
-            else if (comboBox1.SelectedIndex == 4)
+            else if (OnEventType.SelectedIndex == 4)
             {
                 tabControl1.TabPages.Remove(tabPage2);
                 tabControl1.TabPages.Remove(tabPage5);
@@ -132,7 +132,7 @@ namespace FileWatcher
             if (result.ToString() == "Ok")
             {
 
-                textBox2.Text = dialog.FileName;
+                FolderWatcher.Text = dialog.FileName;
             }
             dialog = null;
 
@@ -148,58 +148,58 @@ namespace FileWatcher
                 {
                     button3.Text = "Limpar Log";
                     button1.Enabled = false;
-                    filter.Enabled = false;
-                    comboBox1.Enabled = false;
-                    checkedListBox2.Enabled = false;
-                    checkedListBox1.Enabled = false;
-                    checkBox1.Enabled = false;
+                    Filter.Enabled = false;
+                    OnEventType.Enabled = false;
+                    NotifyFilters.Enabled = false;
+                    EventsTypes.Enabled = false;
+                    Subdirectories.Enabled = false;
                     watcher.Dispose();
                     watcher = new FileSystemWatcher();
-                    watcher.Path = (@"" + textBox2.Text);
-                    label3.Text = "Monitoring";
-                    label3.ForeColor = Color.FromName("DarkGreen");
+                    watcher.Path = (@"" + FolderWatcher.Text);
+                    LabelStatus.Text = "Monitoring";
+                    LabelStatus.ForeColor = Color.FromName("DarkGreen");
                     button2.Text = "Stop";
 
-                    log.AppendText(" " + (log.Lines.Length > 0 ? log.Lines.Length : log.Lines.Length + 1) + " º : \\ FileWatcher - Directory (" + textBox2.Text + ") /" + Environment.NewLine);
+                    LogBox.AppendText(" " + (LogBox.Lines.Length > 0 ? LogBox.Lines.Length : LogBox.Lines.Length + 1) + " º : \\ FileWatcher - Directory (" + FolderWatcher.Text + ") /" + Environment.NewLine);
                     
                     //NotifyFilter
 
-                    if (checkedListBox2.GetItemChecked(0)) { watcher.NotifyFilter |= NotifyFilters.Attributes; }
-                    if (checkedListBox2.GetItemChecked(1)) { watcher.NotifyFilter |= NotifyFilters.CreationTime; }
-                    if (checkedListBox2.GetItemChecked(2)) { watcher.NotifyFilter |= NotifyFilters.DirectoryName; }
-                    if (checkedListBox2.GetItemChecked(3)) { watcher.NotifyFilter |= NotifyFilters.FileName; }
-                    if (checkedListBox2.GetItemChecked(4)) { watcher.NotifyFilter |= NotifyFilters.LastAccess; }
-                    if (checkedListBox2.GetItemChecked(5)) { watcher.NotifyFilter |= NotifyFilters.LastWrite; }
-                    if (checkedListBox2.GetItemChecked(6)) { watcher.NotifyFilter |= NotifyFilters.Security; }
-                    if (checkedListBox2.GetItemChecked(7)) { watcher.NotifyFilter |= NotifyFilters.Size; }
+                    if (NotifyFilters.GetItemChecked(0)) { watcher.NotifyFilter |= System.IO.NotifyFilters.Attributes; }
+                    if (NotifyFilters.GetItemChecked(1)) { watcher.NotifyFilter |= System.IO.NotifyFilters.CreationTime; }
+                    if (NotifyFilters.GetItemChecked(2)) { watcher.NotifyFilter |= System.IO.NotifyFilters.DirectoryName; }
+                    if (NotifyFilters.GetItemChecked(3)) { watcher.NotifyFilter |= System.IO.NotifyFilters.FileName; }
+                    if (NotifyFilters.GetItemChecked(4)) { watcher.NotifyFilter |= System.IO.NotifyFilters.LastAccess; }
+                    if (NotifyFilters.GetItemChecked(5)) { watcher.NotifyFilter |= System.IO.NotifyFilters.LastWrite; }
+                    if (NotifyFilters.GetItemChecked(6)) { watcher.NotifyFilter |= System.IO.NotifyFilters.Security; }
+                    if (NotifyFilters.GetItemChecked(7)) { watcher.NotifyFilter |= System.IO.NotifyFilters.Size; }
 
                     //Eventos
 
-                    if (checkedListBox1.GetItemChecked(0)) { watcher.Changed += OnEvent; }
-                    if (checkedListBox1.GetItemChecked(1)) { watcher.Created += OnEvent; }
-                    if (checkedListBox1.GetItemChecked(2)) { watcher.Deleted += OnEvent; }
-                    if (checkedListBox1.GetItemChecked(3)) { watcher.Renamed += OnEvent; }
+                    if (EventsTypes.GetItemChecked(0)) { watcher.Changed += OnEvent; }
+                    if (EventsTypes.GetItemChecked(1)) { watcher.Created += OnEvent; }
+                    if (EventsTypes.GetItemChecked(2)) { watcher.Deleted += OnEvent; }
+                    if (EventsTypes.GetItemChecked(3)) { watcher.Renamed += OnEvent; }
 
                     watcher.Error += OnError;
-                    watcher.Filter = filter.Text;
-                    watcher.IncludeSubdirectories = checkBox1.Checked;
+                    watcher.Filter = Filter.Text;
+                    watcher.IncludeSubdirectories = Subdirectories.Checked;
                     watcher.EnableRaisingEvents = true;
 
-                    log.AppendText("\n\n        Created By William.Silva\n" + Environment.NewLine + Environment.NewLine);
+                    LogBox.AppendText("\n\n        Created By William.Silva\n" + Environment.NewLine + Environment.NewLine);
 
 
                 }
                 else
                 {
                     button1.Enabled = true;
-                    comboBox1.Enabled = true;
-                    filter.Enabled = true;
-                    checkBox1.Enabled = true;
-                    checkedListBox2.Enabled = true;
-                    checkedListBox1.Enabled = true;
+                    OnEventType.Enabled = true;
+                    Filter.Enabled = true;
+                    Subdirectories.Enabled = true;
+                    NotifyFilters.Enabled = true;
+                    EventsTypes.Enabled = true;
                     watcher.EnableRaisingEvents = false;
                     watcher.Dispose();
-                    log.AppendText(Environment.NewLine +"Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
+                    LogBox.AppendText(Environment.NewLine +"Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
                     Stop();
                 }
             }
@@ -215,7 +215,7 @@ namespace FileWatcher
 
         private void OnEvent(object sender, FileSystemEventArgs e)
         {
-            switch (comboBox1.SelectedIndex)
+            switch (OnEventType.SelectedIndex)
             {
                 case 0:
                     Console.WriteLine("Mover");
@@ -236,9 +236,9 @@ namespace FileWatcher
                     Console.WriteLine("Deletar");
                     break;
                 default:
-                    Console.WriteLine("Caso não existe (" + comboBox1.SelectedIndex + ")");
-                    Error("Caso não existe (" + comboBox1.SelectedIndex + ")");
-                    comboBox1.Select();
+                    Console.WriteLine("Caso não existe (" + OnEventType.SelectedIndex + ")");
+                    Error("Caso não existe (" + OnEventType.SelectedIndex + ")");
+                    OnEventType.Select();
                     break;
             }
 
@@ -246,7 +246,7 @@ namespace FileWatcher
         private void Copy_Rename()
         {
 
-            log.AppendText("Evento" + Environment.NewLine);
+            LogBox.AppendText("Evento" + Environment.NewLine);
 
         }
 
@@ -255,15 +255,15 @@ namespace FileWatcher
         {
 
             button2.Text = "Start";
-            label3.Text = "Stoped";
-            label3.ForeColor = Color.FromName("DeepSkyBlue");
+            LabelStatus.Text = "Stoped";
+            LabelStatus.ForeColor = Color.FromName("DeepSkyBlue");
         }
         private void Error(string er)
         {
             button2.Text = "Start";
-            label3.Text = "Error";
-            label3.ForeColor = Color.FromName("Red");
-            log.AppendText(er + Environment.NewLine);
+            LabelStatus.Text = "Error";
+            LabelStatus.ForeColor = Color.FromName("Red");
+            LogBox.AppendText(er + Environment.NewLine);
         }
         private void OnError(object sender, ErrorEventArgs e)
         {
@@ -284,24 +284,24 @@ namespace FileWatcher
             if (button3.Text == "Limpar Log")
             {
                 button3.Text = "Restaurar";
-                Logg = log.Text;
-                log.Text = "";
+                Logg = LogBox.Text;
+                LogBox.Text = "";
             }
             else {
                 button3.Text = "Limpar Log";
-                log.Text = Logg;
+                LogBox.Text = Logg;
             }
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (checkedListBox1.GetItemChecked(2))
+            if (EventsTypes.GetItemChecked(2))
             {
-                if (comboBox1.SelectedIndex != 7){
-                    comboBox1.SelectedIndex = 0;
+                if (OnEventType.SelectedIndex != 7){
+                    OnEventType.SelectedIndex = 0;
                 }
-                comboBox1.Items.Clear();
-                comboBox1.Items.AddRange(new object[] {
+                OnEventType.Items.Clear();
+                OnEventType.Items.AddRange(new object[] {
                 "Mover",
                 "Renomear",
                 "Mover e Renomear ",
@@ -312,8 +312,8 @@ namespace FileWatcher
             }
             else {
                 
-                comboBox1.Items.Clear();
-                comboBox1.Items.AddRange(new object[] {
+                OnEventType.Items.Clear();
+                OnEventType.Items.AddRange(new object[] {
                 "Mover",
                 "Renomear",
                 "Mover e Renomear ",
@@ -337,7 +337,7 @@ namespace FileWatcher
             if (result.ToString() == "Ok")
             {
 
-                textBox1.Text = dialog.FileName;
+                MoveTo.Text = dialog.FileName;
             }
             dialog = null;
 
@@ -355,7 +355,7 @@ namespace FileWatcher
             if (result.ToString() == "Ok")
             {
 
-                textBox3.Text = dialog.FileName;
+                CopyTo.Text = dialog.FileName;
             }
             dialog = null;
         }
@@ -367,10 +367,15 @@ namespace FileWatcher
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedIndex != 0) { textBox4.Visible = true; } else { textBox4.Visible = false; }
-            if (comboBox2.SelectedIndex == 1) { textBox4.Text = "MMMM"; }
-            if (comboBox2.SelectedIndex == 2) { textBox4.Text = "dd"; }
-            if (comboBox2.SelectedIndex == 3) { textBox4.Enabled = true; } else { textBox4.Enabled = false; }
+            if (TypeSplitDoc.SelectedIndex != 0) { SplitDoc.Visible = true; } else { SplitDoc.Visible = false; }
+            if (TypeSplitDoc.SelectedIndex == 1) { SplitDoc.Text = "MMMM"; }
+            if (TypeSplitDoc.SelectedIndex == 2) { SplitDoc.Text = "dd"; }
+            if (TypeSplitDoc.SelectedIndex == 3) { SplitDoc.Enabled = true; } else { SplitDoc.Enabled = false; }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
