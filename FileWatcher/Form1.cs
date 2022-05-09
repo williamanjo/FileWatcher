@@ -14,7 +14,7 @@ namespace FileWatcher
         FileSystemWatcher watcher = new FileSystemWatcher();
         public static string Logg { set; get; }
         public static string Nome { set; get; }
-        public static int QuantMoni { set; get; }
+        public static uint QuantMoni { set; get; }
         public Form1()
         {
             InitializeComponent();
@@ -223,7 +223,8 @@ namespace FileWatcher
                     watcher.Dispose();
                     LogBox.AppendText(Environment.NewLine + "Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
                     LogBox.AppendText(Environment.NewLine + Environment.NewLine + "-------------------------------------------------" +
-                    "-----------------------------------------------------------------------------------------" + Environment.NewLine + Environment.NewLine + Environment.NewLine);
+                    "-----------------------------------------------------------------------------------------" + 
+                    Environment.NewLine + Environment.NewLine + Environment.NewLine);
                     Stop();
                 }
             }
