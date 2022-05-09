@@ -1,21 +1,24 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
 namespace FileWatcher
 {
-    
+
     public partial class Form1 : Form
 
     {
         FileSystemWatcher watcher = new FileSystemWatcher();
         public static string Logg { set; get; }
         public static string Nome { set; get; }
+        public static int QuantMoni { set; get; }
         public Form1()
         {
             InitializeComponent();
+            QuantMoni = 0;
             CheckForIllegalCrossThreadCalls = false;
             EventsTypes.SetItemChecked(0, true);
             NotifyFilters.SetItemChecked(0, true);
@@ -26,10 +29,30 @@ namespace FileWatcher
             TypeSplitDoc.SelectedIndex = 3;
             SplitDoc.Text = "MMMM-yyyy";
             button1.Select();
+            Closing += OnClosing;
+        }
+
+        private void OnClosing(object sender, CancelEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+            button1.Enabled = true;
+            OnEventType.Enabled = true;
+            Filter.Enabled = true;
+            Subdirectories.Enabled = true;
+            NotifyFilters.Enabled = true;
+            EventsTypes.Enabled = true;
+            watcher.EnableRaisingEvents = false;
+            watcher.Dispose();
+            LogBox.AppendText(Environment.NewLine + "FileWatcher.exe Parado : " + DateTime.Now.ToString() + Environment.NewLine);
+            Stop();
+            using (StreamWriter sw = File.CreateText(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\\Log_LastSession.txt"))
+            {
+                sw.Write(LogBox.Text);
+            }
 
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
             if (OnEventType.SelectedIndex == 0)
@@ -121,7 +144,7 @@ namespace FileWatcher
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
             var dialog = new CommonOpenFileDialog
             {
@@ -134,18 +157,17 @@ namespace FileWatcher
 
                 FolderWatcher.Text = dialog.FileName;
             }
-            dialog = null;
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-                        
+
             try
             {
 
                 if (button2.Text == "Start" || button2.Text == "Stoped")
                 {
+                    QuantMoni++;
                     button3.Text = "Limpar Log";
                     button1.Enabled = false;
                     Filter.Enabled = false;
@@ -160,8 +182,8 @@ namespace FileWatcher
                     LabelStatus.ForeColor = Color.FromName("DarkGreen");
                     button2.Text = "Stop";
 
-                    LogBox.AppendText(" " + (LogBox.Lines.Length > 0 ? LogBox.Lines.Length : LogBox.Lines.Length + 1) + " º : \\ FileWatcher - Directory (" + FolderWatcher.Text + ") /" + Environment.NewLine);
-                    
+                    LogBox.AppendText(" " + QuantMoni + " º : \\ FileWatcher - Directory (" + FolderWatcher.Text + ") /" + Environment.NewLine);
+
                     //NotifyFilter
 
                     if (NotifyFilters.GetItemChecked(0)) { watcher.NotifyFilter |= System.IO.NotifyFilters.Attributes; }
@@ -199,12 +221,20 @@ namespace FileWatcher
                     EventsTypes.Enabled = true;
                     watcher.EnableRaisingEvents = false;
                     watcher.Dispose();
-                    LogBox.AppendText(Environment.NewLine +"Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
+                    LogBox.AppendText(Environment.NewLine + "Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
+                    LogBox.AppendText(Environment.NewLine + Environment.NewLine + "-------------------------------------------------" +
+                    "-----------------------------------------------------------------------------------------" + Environment.NewLine + Environment.NewLine + Environment.NewLine);
                     Stop();
                 }
             }
             catch (Exception error)
             {
+                button1.Enabled = true;
+                OnEventType.Enabled = true;
+                Filter.Enabled = true;
+                Subdirectories.Enabled = true;
+                NotifyFilters.Enabled = true;
+                EventsTypes.Enabled = true;
                 watcher.EnableRaisingEvents = false;
                 watcher.Dispose();
                 Error(error.Message.ToString());
@@ -279,7 +309,7 @@ namespace FileWatcher
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             if (button3.Text == "Limpar Log")
             {
@@ -287,17 +317,19 @@ namespace FileWatcher
                 Logg = LogBox.Text;
                 LogBox.Text = "";
             }
-            else {
+            else
+            {
                 button3.Text = "Limpar Log";
                 LogBox.Text = Logg;
             }
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (EventsTypes.GetItemChecked(2))
             {
-                if (OnEventType.SelectedIndex != 7){
+                if (OnEventType.SelectedIndex != 7)
+                {
                     OnEventType.SelectedIndex = 0;
                 }
                 OnEventType.Items.Clear();
@@ -310,8 +342,9 @@ namespace FileWatcher
             });
 
             }
-            else {
-                
+            else
+            {
+
                 OnEventType.Items.Clear();
                 OnEventType.Items.AddRange(new object[] {
                 "Mover",
@@ -326,7 +359,7 @@ namespace FileWatcher
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             var dialog = new CommonOpenFileDialog
             {
@@ -339,12 +372,10 @@ namespace FileWatcher
 
                 MoveTo.Text = dialog.FileName;
             }
-            dialog = null;
-
         }
 
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             var dialog = new CommonOpenFileDialog
             {
@@ -357,15 +388,14 @@ namespace FileWatcher
 
                 CopyTo.Text = dialog.FileName;
             }
-            dialog = null;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void TextBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TypeSplitDoc.SelectedIndex != 0) { SplitDoc.Visible = true; } else { SplitDoc.Visible = false; }
             if (TypeSplitDoc.SelectedIndex == 1) { SplitDoc.Text = "MMMM"; }
@@ -373,7 +403,7 @@ namespace FileWatcher
             if (TypeSplitDoc.SelectedIndex == 3) { SplitDoc.Enabled = true; } else { SplitDoc.Enabled = false; }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

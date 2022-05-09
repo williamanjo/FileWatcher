@@ -1,0 +1,28 @@
+ 1 º : \ FileWatcher - Directory (C:\Master) /
+
+
+        Created By William.Silva
+
+
+
+Monitoramento Parado : 09/05/2022 16:58:19
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ 2 º : \ FileWatcher - Directory (C:\Users\william.silva\Documents\Dell) /
+
+
+        Created By William.Silva
+
+
+
+Monitoramento Parado : 09/05/2022 16:58:26
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+FileWatcher.exe Parado : 09/05/2022 16:58:33

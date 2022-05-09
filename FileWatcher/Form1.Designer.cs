@@ -120,7 +120,7 @@ namespace FileWatcher
             this.EventsTypes.Size = new System.Drawing.Size(95, 64);
             this.EventsTypes.TabIndex = 0;
             this.toolTip1.SetToolTip(this.EventsTypes, resources.GetString("EventsTypes.ToolTip"));
-            this.EventsTypes.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.EventsTypes.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
             // 
             // OnEventType
             // 
@@ -137,7 +137,7 @@ namespace FileWatcher
             this.OnEventType.Size = new System.Drawing.Size(121, 21);
             this.OnEventType.TabIndex = 37;
             this.toolTip1.SetToolTip(this.OnEventType, "Ação a ser executada quando ocorrer um Evento");
-            this.OnEventType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.OnEventType.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged_1);
             // 
             // NotifyFilters
             // 
@@ -198,7 +198,7 @@ namespace FileWatcher
             this.button4.TabIndex = 31;
             this.button4.Text = "Selecionar";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // MoveTo
             // 
@@ -291,7 +291,7 @@ namespace FileWatcher
             this.button3.TabIndex = 36;
             this.button3.Text = "Limpar Log";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // LabelStatus
             // 
@@ -330,7 +330,7 @@ namespace FileWatcher
             this.button2.TabIndex = 33;
             this.button2.Text = "Start";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // Status
             // 
@@ -351,7 +351,7 @@ namespace FileWatcher
             this.FolderWatcher.Size = new System.Drawing.Size(444, 20);
             this.FolderWatcher.TabIndex = 27;
             this.FolderWatcher.Text = "C:\\AIR Concluido";
-            this.FolderWatcher.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.FolderWatcher.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label2
             // 
@@ -381,7 +381,7 @@ namespace FileWatcher
             this.button1.TabIndex = 28;
             this.button1.Text = "Selecionar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // groupBox1
             // 
@@ -534,7 +534,7 @@ namespace FileWatcher
             this.TypeSplitDoc.Name = "TypeSplitDoc";
             this.TypeSplitDoc.Size = new System.Drawing.Size(151, 21);
             this.TypeSplitDoc.TabIndex = 36;
-            this.TypeSplitDoc.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.TypeSplitDoc.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -554,7 +554,7 @@ namespace FileWatcher
             this.button5.TabIndex = 34;
             this.button5.Text = "Selecionar";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // CopyTo
             // 
@@ -565,7 +565,7 @@ namespace FileWatcher
             this.CopyTo.Size = new System.Drawing.Size(444, 20);
             this.CopyTo.TabIndex = 33;
             this.CopyTo.Text = "C:\\AIR Backup";
-            this.CopyTo.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.CopyTo.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // Form1
             // 
