@@ -47,16 +47,16 @@ namespace FileWatcher
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Btn_Log = new System.Windows.Forms.Button();
             this.LabelStatus = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Start = new System.Windows.Forms.Button();
             this.Status = new System.Windows.Forms.Label();
             this.FolderWatcher = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Btn_WatcherSelect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogBox = new System.Windows.Forms.TextBox();
@@ -137,7 +137,7 @@ namespace FileWatcher
             this.OnEventType.Size = new System.Drawing.Size(121, 21);
             this.OnEventType.TabIndex = 37;
             this.toolTip1.SetToolTip(this.OnEventType, "Ação a ser executada quando ocorrer um Evento");
-            this.OnEventType.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged_1);
+            this.OnEventType.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // NotifyFilters
             // 
@@ -216,16 +216,16 @@ namespace FileWatcher
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.OnEventType);
-            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.Btn_Log);
             this.tabPage1.Controls.Add(this.LabelStatus);
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.Start);
             this.tabPage1.Controls.Add(this.Status);
             this.tabPage1.Controls.Add(this.Filter);
             this.tabPage1.Controls.Add(this.FolderWatcher);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.Btn_WatcherSelect);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -283,15 +283,15 @@ namespace FileWatcher
             this.label4.TabIndex = 38;
             this.label4.Text = "OnEvent :";
             // 
-            // button3
+            // Btn_Log
             // 
-            this.button3.Location = new System.Drawing.Point(451, 106);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 23);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Limpar Log";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.Btn_Log.Location = new System.Drawing.Point(451, 106);
+            this.Btn_Log.Name = "Btn_Log";
+            this.Btn_Log.Size = new System.Drawing.Size(95, 23);
+            this.Btn_Log.TabIndex = 36;
+            this.Btn_Log.Text = "Limpar Log";
+            this.Btn_Log.UseVisualStyleBackColor = true;
+            this.Btn_Log.Click += new System.EventHandler(this.Btn_Log_Click);
             // 
             // LabelStatus
             // 
@@ -322,15 +322,15 @@ namespace FileWatcher
             this.panel2.Size = new System.Drawing.Size(95, 68);
             this.panel2.TabIndex = 0;
             // 
-            // button2
+            // Start
             // 
-            this.button2.Location = new System.Drawing.Point(451, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Start";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.Start.Location = new System.Drawing.Point(451, 77);
+            this.Start.Name = "Start";
+            this.Start.Size = new System.Drawing.Size(95, 23);
+            this.Start.TabIndex = 33;
+            this.Start.Text = "Start";
+            this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
             // Status
             // 
@@ -351,7 +351,7 @@ namespace FileWatcher
             this.FolderWatcher.Size = new System.Drawing.Size(444, 20);
             this.FolderWatcher.TabIndex = 27;
             this.FolderWatcher.Text = "C:\\AIR Concluido";
-            this.FolderWatcher.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            this.FolderWatcher.TextChanged += new System.EventHandler(this.FolderWatcher_TextChanged);
             // 
             // label2
             // 
@@ -373,15 +373,15 @@ namespace FileWatcher
             this.label1.TabIndex = 29;
             this.label1.Text = "Pasta Watcher :";
             // 
-            // button1
+            // Btn_WatcherSelect
             // 
-            this.button1.Location = new System.Drawing.Point(558, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Selecionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            this.Btn_WatcherSelect.Location = new System.Drawing.Point(558, 10);
+            this.Btn_WatcherSelect.Name = "Btn_WatcherSelect";
+            this.Btn_WatcherSelect.Size = new System.Drawing.Size(114, 23);
+            this.Btn_WatcherSelect.TabIndex = 28;
+            this.Btn_WatcherSelect.Text = "Selecionar";
+            this.Btn_WatcherSelect.UseVisualStyleBackColor = true;
+            this.Btn_WatcherSelect.Click += new System.EventHandler(this.Btn_WatcherSelect_Click);
             // 
             // groupBox1
             // 
@@ -612,18 +612,18 @@ namespace FileWatcher
         private System.Windows.Forms.CheckedListBox NotifyFilters;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox OnEventType;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Btn_Log;
         private System.Windows.Forms.Label LabelStatus;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckedListBox EventsTypes;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.TextBox Filter;
         private System.Windows.Forms.TextBox FolderWatcher;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_WatcherSelect;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox LogBox;

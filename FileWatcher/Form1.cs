@@ -28,14 +28,14 @@ namespace FileWatcher
             OnEventType.SelectedIndex = 4;
             TypeSplitDoc.SelectedIndex = 3;
             SplitDoc.Text = "MMMM-yyyy";
-            button1.Select();
+            Btn_WatcherSelect.Select();
             Closing += OnClosing;
         }
 
         private void OnClosing(object sender, CancelEventArgs e)
         {
             Properties.Settings.Default.Save();
-            button1.Enabled = true;
+            Btn_WatcherSelect.Enabled = true;
             OnEventType.Enabled = true;
             Filter.Enabled = true;
             Subdirectories.Enabled = true;
@@ -52,7 +52,7 @@ namespace FileWatcher
 
         }
 
-        private void ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             if (OnEventType.SelectedIndex == 0)
@@ -144,7 +144,7 @@ namespace FileWatcher
 
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
+        private void Btn_WatcherSelect_Click(object sender, EventArgs e)
         {
             var dialog = new CommonOpenFileDialog
             {
@@ -159,17 +159,17 @@ namespace FileWatcher
             }
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Start_Click(object sender, EventArgs e)
         {
 
             try
             {
 
-                if (button2.Text == "Start" || button2.Text == "Stoped")
+                if (Start.Text == "Start" || Start.Text == "Stoped")
                 {
                     QuantMoni++;
-                    button3.Text = "Limpar Log";
-                    button1.Enabled = false;
+                    Btn_Log.Text = "Limpar Log";
+                    Btn_WatcherSelect.Enabled = false;
                     Filter.Enabled = false;
                     OnEventType.Enabled = false;
                     NotifyFilters.Enabled = false;
@@ -180,7 +180,7 @@ namespace FileWatcher
                     watcher.Path = (@"" + FolderWatcher.Text);
                     LabelStatus.Text = "Monitoring";
                     LabelStatus.ForeColor = Color.FromName("DarkGreen");
-                    button2.Text = "Stop";
+                    Start.Text = "Stop";
 
                     LogBox.AppendText(" " + QuantMoni + " º : \\ FileWatcher - Directory (" + FolderWatcher.Text + ") /" + Environment.NewLine);
 
@@ -213,7 +213,7 @@ namespace FileWatcher
                 }
                 else
                 {
-                    button1.Enabled = true;
+                    Btn_WatcherSelect.Enabled = true;
                     OnEventType.Enabled = true;
                     Filter.Enabled = true;
                     Subdirectories.Enabled = true;
@@ -230,7 +230,7 @@ namespace FileWatcher
             }
             catch (Exception error)
             {
-                button1.Enabled = true;
+                Btn_WatcherSelect.Enabled = true;
                 OnEventType.Enabled = true;
                 Filter.Enabled = true;
                 Subdirectories.Enabled = true;
@@ -285,13 +285,13 @@ namespace FileWatcher
         private void Stop()
         {
 
-            button2.Text = "Start";
+            Start.Text = "Start";
             LabelStatus.Text = "Stoped";
             LabelStatus.ForeColor = Color.FromName("DeepSkyBlue");
         }
         private void Error(string er)
         {
-            button2.Text = "Start";
+            Start.Text = "Start";
             LabelStatus.Text = "Error";
             LabelStatus.ForeColor = Color.FromName("Red");
             LogBox.AppendText(er + Environment.NewLine);
@@ -310,17 +310,17 @@ namespace FileWatcher
             }
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void Btn_Log_Click(object sender, EventArgs e)
         {
-            if (button3.Text == "Limpar Log")
+            if (Btn_Log.Text == "Limpar Log")
             {
-                button3.Text = "Restaurar";
+                Btn_Log.Text = "Restaurar";
                 Logg = LogBox.Text;
                 LogBox.Text = "";
             }
             else
             {
-                button3.Text = "Limpar Log";
+                Btn_Log.Text = "Limpar Log";
                 LogBox.Text = Logg;
             }
         }
@@ -404,7 +404,7 @@ namespace FileWatcher
             if (TypeSplitDoc.SelectedIndex == 3) { SplitDoc.Enabled = true; } else { SplitDoc.Enabled = false; }
         }
 
-        private void TextBox2_TextChanged(object sender, EventArgs e)
+        private void FolderWatcher_TextChanged(object sender, EventArgs e)
         {
 
         }
