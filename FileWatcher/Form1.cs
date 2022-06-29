@@ -176,8 +176,7 @@ namespace FileWatcher
                     EventsTypes.Enabled = false;
                     Subdirectories.Enabled = false;
                     watcher.Dispose();
-                    watcher = new FileSystemWatcher();
-                    watcher.Path = (@"" + FolderWatcher.Text);
+                    watcher = new FileSystemWatcher { Path = (@"" + FolderWatcher.Text) };
                     LabelStatus.Text = "Monitoring";
                     LabelStatus.ForeColor = Color.FromName("DarkGreen");
                     Start.Text = "Stop";
@@ -258,10 +257,10 @@ namespace FileWatcher
                     Console.WriteLine("Mover e Renomear");
                     break;
                 case 3:
-                    Console.WriteLine("Copiar");
+                    Copy(e);
                     break;
                 case 4:
-                    Copy_Rename();
+                    Copy_Rename(e);
                     break;
                 case 5:
                     Console.WriteLine("Deletar");
@@ -274,10 +273,17 @@ namespace FileWatcher
             }
 
         }
-        private void Copy_Rename()
+        private void Copy_Rename(FileSystemEventArgs FileEvent)
         {
+            FileInfo file = new FileInfo(FileEvent.FullPath);
+            LogBox.AppendText("Copy_Rename "+ file.Name + Environment.NewLine);
 
-            LogBox.AppendText("Evento" + Environment.NewLine);
+        }
+        private void Copy(FileSystemEventArgs FileEvent)
+        {
+            FileInfo file = new FileInfo(FileEvent.FullPath);
+            LogBox.AppendText("Copiando " + file.Name + Environment.NewLine);
+            File.Copy(file.FullName,CopyTo + "\\" + file.Name);
 
         }
 
