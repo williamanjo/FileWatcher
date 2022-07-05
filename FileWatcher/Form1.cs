@@ -478,7 +478,9 @@ namespace FileWatcher
 
         private void ExtensionDocType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (ExtensionDocType.SelectedIndex != 0) { ExtensionDoc.Visible = true; } else { ExtensionDoc.Visible = false; }
+            if (ExtensionDocType.SelectedIndex == 1) { ExtensionDoc.Text = "MM"; }
+            if (ExtensionDocType.SelectedIndex == 2) { ExtensionDoc.Text = "TXT"; }
         }
     }
 }

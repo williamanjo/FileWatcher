@@ -1,27 +1,2 @@
- 1 º : \ FileWatcher - Directory (C:\Users\william.silva\Desktop\Darfs) /
 
-
-        Created By William.Silva
-
-
-Copiando 1 - Copia.txt
-1 - Copia
-Novo Nome : 1 - Copia05-JUL-22.07
-Copiando 1 - Copia (2).txt
-1 - Copia (2)
-Novo Nome : 1 - Copia (2)05-JUL-22.22
-Copiando 1 - Copia (3).txt
-1 - Copia (3)
-Novo Nome : 1 - Copia (3)-JUL.C9V
-Copiando 1 - Copia (4).txt
-1 - Copia (4)
-Novo Nome : 1 - Copia (4)-JUL.csv
-
-Monitoramento Parado : 05/07/2022 10:33:43
-
-
-------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-FileWatcher.exe Parado : 05/07/2022 10:39:30
+FileWatcher.exe Parado : 05/07/2022 14:43:01
