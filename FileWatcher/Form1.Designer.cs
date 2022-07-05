@@ -452,12 +452,13 @@ namespace FileWatcher
             this.ExtensionDocType.FormattingEnabled = true;
             this.ExtensionDocType.Items.AddRange(new object[] {
             "Não Mudar a Extenção",
-            "Extenção do Arquivo (Específica)",
-            "Extenção do Arquivo (Format)"});
+            "Extenção do Arquivo (Format)",
+            "Extenção do Arquivo (Específica)"});
             this.ExtensionDocType.Location = new System.Drawing.Point(100, 82);
             this.ExtensionDocType.Name = "ExtensionDocType";
             this.ExtensionDocType.Size = new System.Drawing.Size(183, 21);
             this.ExtensionDocType.TabIndex = 42;
+            this.ExtensionDocType.SelectedIndexChanged += new System.EventHandler(this.ExtensionDocType_SelectedIndexChanged);
             // 
             // ChangeDocName
             // 
@@ -534,7 +535,7 @@ namespace FileWatcher
             this.TypeSplitDoc.Name = "TypeSplitDoc";
             this.TypeSplitDoc.Size = new System.Drawing.Size(151, 21);
             this.TypeSplitDoc.TabIndex = 36;
-            this.TypeSplitDoc.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
+            this.TypeSplitDoc.SelectedIndexChanged += new System.EventHandler(this.TypeSplitDoc_SelectedIndexChanged);
             // 
             // label7
             // 

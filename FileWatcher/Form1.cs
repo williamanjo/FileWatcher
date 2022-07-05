@@ -25,6 +25,8 @@ namespace FileWatcher
             NotifyFilters.SetItemChecked(1, true);
             NotifyFilters.SetItemChecked(3, true);
             NotifyFilters.SetItemChecked(5, true);
+            ExtensionDocType.SelectedIndex = 0;
+            ChangeDocNameType.SelectedIndex = 0;
             OnEventType.SelectedIndex = 4;
             TypeSplitDoc.SelectedIndex = 3;
             SplitDoc.Text = "MMMM-yyyy";
@@ -222,7 +224,7 @@ namespace FileWatcher
                     watcher.Dispose();
                     LogBox.AppendText(Environment.NewLine + "Monitoramento Parado : " + DateTime.Now.ToString() + Environment.NewLine);
                     LogBox.AppendText(Environment.NewLine + Environment.NewLine + "-------------------------------------------------" +
-                    "-----------------------------------------------------------------------------------------" + 
+                    "-----------------------------------------------------------------------------------------" +
                     Environment.NewLine + Environment.NewLine + Environment.NewLine);
                     Stop();
                 }
@@ -257,10 +259,10 @@ namespace FileWatcher
                     Console.WriteLine("Mover e Renomear");
                     break;
                 case 3:
-                    Copy(e);
+                    Copy(e,false);
                     break;
                 case 4:
-                    Copy_Rename(e);
+                    Copy(e,true);
                     break;
                 case 5:
                     Console.WriteLine("Deletar");
@@ -273,18 +275,63 @@ namespace FileWatcher
             }
 
         }
-        private void Copy_Rename(FileSystemEventArgs FileEvent)
-        {
-            FileInfo file = new FileInfo(FileEvent.FullPath);
-            LogBox.AppendText("Copy_Rename "+ file.Name + Environment.NewLine);
 
-        }
-        private void Copy(FileSystemEventArgs FileEvent)
+        private void Copy(FileSystemEventArgs FileEvent, Boolean Rename)
         {
             FileInfo file = new FileInfo(FileEvent.FullPath);
             LogBox.AppendText("Copiando " + file.Name + Environment.NewLine);
-            File.Copy(file.FullName,CopyTo + "\\" + file.Name);
 
+            String fileName = Rename ? NewName(file) : file.Name;
+
+            String pasta = SplitDocReturn();
+            if (pasta.Length > 0)
+            {
+                if (Directory.Exists(CopyTo.Text + "\\" + pasta))
+                {
+                    File.Copy(file.FullName, CopyTo.Text + "\\" + pasta + "\\" + fileName);
+                }
+                else
+                {
+                    Directory.CreateDirectory(CopyTo.Text + "\\" + pasta);
+                    File.Copy(file.FullName, CopyTo.Text + "\\" + pasta + "\\" + fileName);
+                }
+            }
+            else
+            {
+
+                File.Copy(file.FullName, CopyTo.Text + "\\" + fileName);
+
+            }
+        }
+        private string NewName(FileInfo oldFile) {
+            String Name = oldFile.Name.Substring(0, oldFile.Name.Length - oldFile.Extension.Length);
+            LogBox.AppendText(Name + Environment.NewLine);
+
+            if (ChangeDocNameType.SelectedIndex != 2)
+            {
+                Name = Name + DateTime.Now.ToString(ChangeDocName.Text).ToUpper();
+            }
+            else
+            {
+                Name = Name + ChangeDocName.Text;
+            }
+            if (ExtensionDocType.SelectedIndex == 1)
+            {
+                Name = Name + "." + DateTime.Now.ToString(ExtensionDoc.Text).ToUpper();
+
+            }
+            else if (ExtensionDocType.SelectedIndex == 2)
+            {
+
+                Name = Name + "." + ExtensionDoc.Text;
+            }
+            else {
+                Name = Name + oldFile.Extension;
+            }
+
+            LogBox.AppendText("Novo Nome : " + Name + Environment.NewLine);
+
+            return Name;
         }
 
 
@@ -402,7 +449,7 @@ namespace FileWatcher
 
         }
 
-        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void TypeSplitDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TypeSplitDoc.SelectedIndex != 0) { SplitDoc.Visible = true; } else { SplitDoc.Visible = false; }
             if (TypeSplitDoc.SelectedIndex == 1) { SplitDoc.Text = "MMMM"; }
@@ -411,6 +458,25 @@ namespace FileWatcher
         }
 
         private void FolderWatcher_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private string SplitDocReturn()
+        {
+
+            string SplitDocF;
+            if (TypeSplitDoc.SelectedIndex != 0) 
+            { 
+                SplitDocF = DateTime.Now.ToString(SplitDoc.Text).ToUpper(); 
+            }
+            else { 
+                SplitDocF = ""; 
+            }
+            return SplitDocF;
+
+        }
+
+        private void ExtensionDocType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
